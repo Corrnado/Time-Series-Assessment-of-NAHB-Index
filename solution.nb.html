@@ -173,13 +173,18 @@ $(document).ready(function () {
 
 
 <!-- rnb-text-begin -->
+<p>All data was downloaded from website “<a href="https://www.nahb.org/en/research/housing-economics/housing-indexes/housing-market-index.aspx" class="uri">https://www.nahb.org/en/research/housing-economics/housing-indexes/housing-market-index.aspx</a>”. The naitonal NAHB index history data from Jan 2000 to Feb 2018 was converted to csv file in Excel.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBpbXBvcnQgaGlzdG9yeSBkYXRhIGZyb20gdGhlIGZpbGVcbm5oaXN0IDwtIHJlYWQuY3N2KFwibmF0aW9uYWxfaGlzdG9yeS5jc3ZcIiwgaGVhZGVyID0gVFJVRSlcbmBgYCJ9 -->
+<pre class="r"><code># import history data from the file
+nhist &lt;- read.csv(&quot;national_history.csv&quot;, header = TRUE)</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiVGltZSBTZXJpZXMgQXNzZXNzbWVudCBvZiBOQUhCIEluZGV4IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgoKYGBge3J9CgpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiVGltZSBTZXJpZXMgQXNzZXNzbWVudCBvZiBOQUhCIEluZGV4IgpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sKLS0tCgpBbGwgZGF0YSB3YXMgZG93bmxvYWRlZCBmcm9tIHdlYnNpdGUgImh0dHBzOi8vd3d3Lm5haGIub3JnL2VuL3Jlc2VhcmNoL2hvdXNpbmctZWNvbm9taWNzL2hvdXNpbmctaW5kZXhlcy9ob3VzaW5nLW1hcmtldC1pbmRleC5hc3B4Ii4gVGhlIG5haXRvbmFsIE5BSEIgaW5kZXggaGlzdG9yeSBkYXRhIGZyb20gSmFuIDIwMDAgdG8gRmViIDIwMTggd2FzIGNvbnZlcnRlZCB0byBjc3YgZmlsZSBpbiBFeGNlbC4KYGBge3J9CiMgaW1wb3J0IGhpc3RvcnkgZGF0YSBmcm9tIHRoZSBmaWxlCm5oaXN0IDwtIHJlYWQuY3N2KCJuYXRpb25hbF9oaXN0b3J5LmNzdiIsIGhlYWRlciA9IFRSVUUpCmBgYAoK</div>
 
 
 

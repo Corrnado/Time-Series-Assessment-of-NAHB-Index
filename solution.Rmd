@@ -3,8 +3,9 @@ title: "Time Series Assessment of NAHB Index"
 output: html_notebook
 ---
 
-
+All data was downloaded from website "https://www.nahb.org/en/research/housing-economics/housing-indexes/housing-market-index.aspx". The naitonal NAHB index history data from Jan 2000 to Feb 2018 was converted to csv file in Excel.
 ```{r}
-
+# import history data from the file
+nhist <- read.csv("national_history.csv", header = TRUE)
 ```
 
