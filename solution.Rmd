@@ -108,3 +108,4 @@ prediction.adj
 plot(prediction.adj)
 ```
 
+It can be seen that the prediction of the 2018 NAHB index from the adjusted data fits better with the NAHB index pattern that it stays on the high ground from the end of the year to the begining of the next year and drops as moving toward the middle of the year.
