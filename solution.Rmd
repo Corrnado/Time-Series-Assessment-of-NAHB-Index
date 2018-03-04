@@ -71,5 +71,14 @@ Considering the drop in the index from 2008 to 2012, the index during that perio
 nhist.adj <- rbind(nhist[1:108,],nhist[145:218,])
 nhistts.adj <- ts(nhist.adj[,2], frequency = 12, start = 1)
 
-
+# get a sense of what adjusted data looks like
+plot.ts(nhistts.adj)
+nhisttscomp.adj <- decompose(nhistts.adj)
+plot(nhisttscomp.adj)
 ```
+
+The effect of the drop during these three years seem to be compensated.
+
+```{r}
+
+``
