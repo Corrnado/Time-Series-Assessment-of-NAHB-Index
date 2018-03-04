@@ -26,6 +26,9 @@ NAHB varies from 9 to 74 in the past and most of the time the index falled into 
 # to select a time series model using cross validation due to the continuous requirement 
 # of time series model, a rolling basis cross validation will be implented
 
+# load necessary library
+library(forecast)
+
 # to create a group identifier for each year andthe 2 monthes in 2018 will be combined with 2017
 id <- rep(1:18, each = 12)
 id <- c(id, c(18, 18))
@@ -36,9 +39,9 @@ maes <- vector("numeric", 17)
 
 # loop through every traning group
 for (i in 2:17){
-  nhisttsforecast <- auto.arima(window(nhistts, 1, c(i, 12)), D = 1, trace = TRUE)
+  nhisttsforecast <- auto.arima(window(nhistts, 2000, c(1999 + i, 12)), D = 1, trace = TRUE)
   models[[i]] <- nhisttsforecast$arma
-  if (i < 14){
+  if (i < 17){
     pred <- forecast(nhisttsforecast, 12)
   } else {
     pred <- forecast(nhisttsforecast, 14)
@@ -50,4 +53,4 @@ for (i in 2:17){
 models[[which.min(maes[2:14]) + 1]]
 ```
 
-Since time series model requires a continuous 
+Since time series model requires a continuous training set, random sample from the original group would be a bad idea. Thus, a rolling basis cross validation was introduced that data from 2000 would be training set for fold 1 and the model would be tested on 2001; data from 2000 and 2001 would be training set for fold 2 and the model would be tested on 2002; then the training set includes one more year at the next fold each time and the resulting model would be tested on the following year. Since the original data is from Jan 2000 to Feb 2018, 17 folds were used.
