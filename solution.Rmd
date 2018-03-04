@@ -54,3 +54,22 @@ models[[which.min(maes[2:14]) + 1]]
 ```
 
 Since time series model requires a continuous training set, random sample from the original group would be a bad idea. Thus, a rolling basis cross validation was introduced that data from 2000 would be training set for fold 1 and the model would be tested on 2001; data from 2000 and 2001 would be training set for fold 2 and the model would be tested on 2002; then the training set includes one more year at the next fold each time and the resulting model would be tested on the following year. Since the original data is from Jan 2000 to Feb 2018, 17 folds were used.
+
+```{r}
+# fit the optimal model to the whole data set
+nhisttsforecast <- arima(nhistts, order = c(1, 2, 1), seasonal = list(order = c(0, 0, 1), period = 12))
+prediction <- forecast(nhisttsforecast, 10)
+prediction
+plot(prediction)
+```
+
+Fit the resulting model to the whole data set and plot the prediciton.
+Considering the drop in the index from 2008 to 2012, the index during that period probabaly didn't behave normally comparing to other time. It's worth a try that exclude part of the data from that period into the training data set to yield a model with less abnormal data. Data from Jan 2009 to Dec 2011 was decided to be excluded from the model.
+
+```{r}
+# create a new data set with out the drop period
+nhist.adj <- rbind(nhist[1:108,],nhist[145:218,])
+nhistts.adj <- ts(nhist.adj[,2], frequency = 12, start = 1)
+
+
+```
